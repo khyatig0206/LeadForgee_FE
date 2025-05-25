@@ -59,7 +59,7 @@ const Navbar = () => {
           </nav>
           
           <div className="flex items-center">
-            <a href="/#book-call" className="hidden md:block">
+            <a href="https://calendly.com/leadforgee/onboarding" className="hidden md:block">
               <Button className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white px-5 py-2 rounded-full font-medium hover:shadow-lg transition-shadow">
                 Book a Call
               </Button>

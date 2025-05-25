@@ -5,31 +5,46 @@ const BookCall = () => {
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
 
   useEffect(() => {
+    const calendlyScriptUrl = "https://assets.calendly.com/assets/external/widget.js";
+    const calendlyCssUrl = "https://assets.calendly.com/assets/external/widget.css";
+
+    const addCalendlyScript = () => {
+      return new Promise((resolve) => {
+        const script = document.createElement("script");
+        script.src = calendlyScriptUrl;
+        script.async = true;
+        script.onload = resolve;
+        document.body.appendChild(script);
+      });
+    };
+
     const addCalendlyStyles = () => {
       const link = document.createElement("link");
       link.rel = "stylesheet";
-      link.href = "https://assets.calendly.com/assets/external/widget.css";
+      link.href = calendlyCssUrl;
       document.head.appendChild(link);
     };
 
-    const addCalendlyScript = () => {
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.onload = () => setIsCalendlyReady(true);
-      script.async = true;
-      document.body.appendChild(script);
+    const loadCalendly = async () => {
+      // Add Calendly assets if not already present
+      if (!document.querySelector(`script[src="${calendlyScriptUrl}"]`)) {
+        addCalendlyStyles();
+        await addCalendlyScript();
+      }
+
+      // Initialize the Calendly widget
+      if (window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: calendlyUrl,
+          parentElement: document.getElementById("calendly-container"),
+          prefill: {},
+          utm: {}
+        });
+        setIsCalendlyReady(true);
+      }
     };
 
-    if (
-      !document.querySelector(
-        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-      )
-    ) {
-      addCalendlyStyles();
-      addCalendlyScript();
-    } else {
-      setIsCalendlyReady(true);
-    }
+    loadCalendly();
   }, []);
 
   return (
@@ -55,19 +70,18 @@ const BookCall = () => {
               of our lead generation experts.
             </p>
 
-            {/* Calendly Inline Embed */}
             <div className="w-full h-[700px] bg-white rounded-lg overflow-hidden border border-gray-200">
-              {isCalendlyReady ? (
-                <div
-                  className=" calendly-inline-widget w-full h-full"
-                  data-url={calendlyUrl}
-                  style={{ minWidth: "320px", height: "100%" }}
-                ></div>
-              ) : (
-                <div className="flex items-center justify-center h-full">
-                  <p className="text-gray-500">Loading calendar...</p>
-                </div>
-              )}
+              <div
+                id="calendly-container"
+                className="w-full h-full"
+                style={{ minWidth: "320px", height: "100%" }}
+              >
+                {!isCalendlyReady && (
+                  <div className="flex items-center justify-center h-full">
+                    <p className="text-gray-500">Loading calendar...</p>
+                  </div>
+                )}
+              </div>
             </div>
 
             <p className="text-gray-500 text-sm mt-4">
