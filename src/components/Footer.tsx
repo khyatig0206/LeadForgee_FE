@@ -50,11 +50,11 @@ const Footer = () => {
           <div className="md:col-start-3">
             <h3 className="text-xl font-bold mb-4">Company</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><a href="/#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
               {/* <li><Link href="#" className="hover:text-white transition-colors">Case Studies</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Careers</Link></li> */}
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
