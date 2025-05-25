@@ -192,10 +192,10 @@ const TestimonialList = ({ onEdit }: TestimonialListProps) => {
             </TableHeader>
             <TableBody>
               {testimonials.map((testimonial: Testimonial) => (
-                <TableRow key={testimonial.id}>
+                <TableRow key={testimonial._id}>
                   <TableCell>
                     <img 
-                      src={`${import.meta.env.VITE_API_BASE_URL}${testimonial.imageUrl}`} 
+                      src={`${testimonial.imageUrl}`} 
                       alt={testimonial.name}
                       className="w-10 h-10 rounded-full object-cover"
                     />
@@ -216,7 +216,7 @@ const TestimonialList = ({ onEdit }: TestimonialListProps) => {
                   <TableCell>
                     <Badge 
                       className={`cursor-pointer ${testimonial.active ? 'bg-green-500' : 'bg-gray-500'}`}
-                      onClick={() => handleToggleActive(testimonial.id, testimonial.active)}
+                      onClick={() => handleToggleActive(testimonial._id, testimonial.active)}
                     >
                       {testimonial.active ? 'Active' : 'Inactive'}
                     </Badge>
@@ -234,7 +234,7 @@ const TestimonialList = ({ onEdit }: TestimonialListProps) => {
                       variant="ghost" 
                       size="sm"
                       className="text-red-500 hover:text-red-700"
-                      onClick={() => handleDeleteClick(testimonial.id)}
+                      onClick={() => handleDeleteClick(testimonial._id)}
                     >
                       <i className="fas fa-trash-alt mr-1"></i> Delete
                     </Button>

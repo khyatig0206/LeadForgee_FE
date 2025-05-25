@@ -51,7 +51,7 @@ interface TestimonialFormProps {
 
 const TestimonialForm = ({ testimonial, onSuccess }: TestimonialFormProps) => {
 const [imagePreview, setImagePreview] = useState<string | null>(
-  testimonial?.imageUrl ? `${import.meta.env.VITE_API_BASE_URL}${testimonial.imageUrl}` : null
+  testimonial?.imageUrl ? `${testimonial.imageUrl}` : null
 );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const queryClient = useQueryClient();
@@ -88,7 +88,7 @@ const [imagePreview, setImagePreview] = useState<string | null>(
   const mutation = useMutation({
     mutationFn: async (data: FormData) => {
       const url = isEditing 
-        ? `${import.meta.env.VITE_API_BASE_URL}/api/testimonial/${testimonial.id}`
+        ? `${import.meta.env.VITE_API_BASE_URL}/api/testimonial/${testimonial._id}`
         : `${import.meta.env.VITE_API_BASE_URL}/api/testimonial`;
         
       const method = isEditing ? 'PUT' : 'POST';

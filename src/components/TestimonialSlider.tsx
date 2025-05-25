@@ -156,13 +156,13 @@ const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
             >
               {testimonials.map((testimonial: Testimonial) => (
                 <div 
-                  key={testimonial.id} 
+                  key={testimonial._id} 
                   className={`testimonial-card min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4`}
                 >
                   <Card className="p-8 h-full testimonial-gradient">
                     <div className="flex items-center mb-6">
                       <img 
-                        src={`${import.meta.env.VITE_API_BASE_URL}${testimonial.imageUrl}`} 
+                        src={`${testimonial.imageUrl}`} 
                         alt={testimonial.name} 
                         className="w-16 h-16 rounded-full mr-4 object-cover" 
                       />
