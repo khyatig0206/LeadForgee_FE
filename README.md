@@ -1,5 +1,6 @@
 
-**LeadForgee – Lead Generation Platform** | [Live](https://leadforgee.com) | [Code](https://github.com/khyatig0206/leadforgee)
+**LeadForgee – Lead Generation Platform** | [Live](https://www.leadforgee.com/)
+
 **TypeScript | React | Tailwind CSS | Node.js | Express | Vercel | Render**
 
 * Designed and developed a full-stack B2B lead generation platform enabling users to book calls, view services, and submit testimonials.
