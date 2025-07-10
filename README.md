@@ -1,3 +1,12 @@
+
+**LeadForgee – Lead Generation Platform** | [Live](https://leadforgee.com) | [Code](https://github.com/khyatig0206/leadforgee)
+**TypeScript | React | Tailwind CSS | Node.js | Express | Vercel | Render**
+
+* Designed and developed a full-stack B2B lead generation platform enabling users to book calls, view services, and submit testimonials.
+* Built admin dashboard with dynamic testimonial and contact management system, using secure authentication and RESTful APIs.
+* Integrated **Calendly**, **custom contact forms**, and **testimonial widgets** to streamline customer interaction and business conversion.
+* Deployed frontend on Vercel and backend on Render with real-time admin panel showcasing live lead submissions and client feedback.
+
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/e311f09a-27aa-45c2-9bd7-c29bdaeb8f1d" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/9e86ae7f-64d3-4754-b2a9-594a023abd45" />
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c0b75267-3305-4cbd-9503-8ab17f8b829a" />
